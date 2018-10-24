@@ -10,10 +10,11 @@ using Android.Widget;
 
 namespace App1
 {
+
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
-
+        [Log]
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -25,13 +26,13 @@ namespace App1
             FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
             fab.Click += FabOnClick;
         }
-
+        [Log]
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.menu_main, menu);
             return true;
         }
-
+        [Log]
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             int id = item.ItemId;
@@ -39,10 +40,10 @@ namespace App1
             {
                 return true;
             }
-
+            
             return base.OnOptionsItemSelected(item);
         }
-        
+        [Log]
         private void FabOnClick(object sender, EventArgs eventArgs)
         {
             TaskAsync();
