@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Android.App;
 using Android.OS;
 using Android.Runtime;
@@ -44,11 +45,19 @@ namespace App1
         
         private void FabOnClick(object sender, EventArgs eventArgs)
         {
-            throw new NotSupportedException();
+            TaskAsync();
             View view = (View) sender;
             Snackbar.Make(view, "Replace with your own action", Snackbar.LengthLong)
                 .SetAction("Action", (Android.Views.View.IOnClickListener)null).Show();
-
+        }
+        /// <summary>
+        /// The methods needs to be declared async!!
+        /// </summary>
+        /// <returns></returns>
+        public async Task TaskAsync()
+        {
+            await Task.Delay(TimeSpan.FromSeconds(1));
+            throw new ArgumentException();
         }
 	}
 }
